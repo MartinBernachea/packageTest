@@ -11,3 +11,9 @@ fetch('http://localhost:3000/companies')
         }
     })
     .catch(err => console.error(err));
+
+    // let btn = document.getElementById('btnSendData');
+    // btn.addEventListener("click", function(e){
+    //     e.preventDefault();
+
+    // });
