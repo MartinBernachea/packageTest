@@ -1,11 +1,11 @@
-const platosController = require('./../controllers/mainController')
+const mainController = require('./../controllers/mainController')
 
 const express = require('express');
 const router = express.Router();
 
-router.get('/',platosController.index)
+router.get('/',mainController.index)
 
-router.get('/detalle/:id',platosController.detail)
+router.get('/companies',mainController.getCompanies)
 
 
 module.exports = router;

@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "name": "altrack",
+        "apiUrl": "http://www.liric.com/dfx"
+    },
+    {
+        "id": 2,
+        "name": "qwer",
+        "apiUrl": "http://www.qwe.com/dfx"
+    }
+]
