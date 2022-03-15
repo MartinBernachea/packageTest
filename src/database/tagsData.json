@@ -1,26 +1,32 @@
 [
- {
-  "id": 1,
-  "origin": "Africa",
-  "destination": "China",
-  "companieID": "bfh"
- },
- {
-  "id": 2,
-  "origin": "Marruecos",
-  "destination": "España",
-  "companieID": "2"
- },
- {
-  "id": 3,
-  "origin": "Calasandra",
-  "destination": "EVA",
-  "companieID": "2"
- },
- {
-  "id": 4,
-  "origin": "Melva",
-  "destination": "Drian",
-  "companieID": "1"
- }
+  {
+    "id": 1,
+    "address_from": {
+    "name": "Fernando López",
+    "street1": "Av. Principal #123",
+    "city": "Azcapotzalco",
+    "province": "Ciudad de México",
+    "postal_code": "02900",
+    "country_code": "MX"
+    },
+    "address_to": {
+    "name": "Isabel Arredondo",
+    "street1": "Av. Las Torres #123",
+    "city": "Puebla",
+    "province": "Puebla",
+    "postal_code": "72450",
+    "country_code": "MX"
+    },
+    "parcels": 
+    [
+        {
+            "length": 40,
+            "width": 40,
+            "height": 40,
+            "dimensions_unit": "CM",
+            "weight": 5,
+            "weight_unit": "KG"
+        }
+    ]
+  }
 ]

@@ -3,6 +3,11 @@
 A project to manage package request 
 
 
+## Author
+
+Jerónimo Sola
+
+
 ## Running instructions
 
 **npm install** --> install dependencies  
@@ -14,7 +19,8 @@ A project to manage package request
 Express
 
 
-## Author
+## Documentation
 
-Jerónimo Sola
+![alt text](https://i.ibb.co/hRdNcD6/bd-image.png)
+
 
