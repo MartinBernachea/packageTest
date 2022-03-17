@@ -1,7 +1,5 @@
 let selectCompanies = document.getElementById('companie');
 
-let url='';
-
 fetch('http://localhost:3000/companies')
     .then(res => res.json())
     .then(res => {
