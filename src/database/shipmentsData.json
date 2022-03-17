@@ -1,0 +1,93 @@
+[
+ {
+  "id": 1,
+  "address_from": {
+   "name": "Fernando López",
+   "street1": "Av. Principal #123",
+   "city": "Azcapotzalco",
+   "province": "Ciudad de México",
+   "postal_code": "02900",
+   "country_code": "MX"
+  },
+  "address_to": {
+   "name": "Isabel Arredondo",
+   "street1": "Av. Las Torres #123",
+   "city": "Puebla",
+   "province": "Puebla",
+   "postal_code": "72450",
+   "country_code": "MX"
+  },
+  "parcels": [
+   {
+    "length": 40,
+    "width": 40,
+    "height": 40,
+    "dimensions_unit": "CM",
+    "weight": 5,
+    "weight_unit": "KG"
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "address_from": {
+   "name": "Jeronimo Sola",
+   "street1": "Juan de Garay 2507",
+   "city": "Santa Fe",
+   "province": "Santa Fe",
+   "postal_code": "72450",
+   "country_code": "MX"
+  },
+  "address_to": {
+   "name": "Pedro Loaza",
+   "street1": "santiago 2445",
+   "city": "Fauz",
+   "province": "Formosa",
+   "postal_code": "72450",
+   "country_code": "MX"
+  },
+  "parcels": [
+   {
+    "length": "45",
+    "width": "23",
+    "height": "25",
+    "dimensions_unit": "CM",
+    "weight": "55",
+    "weight_unit": "KG"
+   }
+  ],
+  "companieID": "1",
+  "status": "pending"
+ },
+ {
+  "id": 3,
+  "address_from": {
+   "name": "Yayo embrea",
+   "street1": "Verni 5335",
+   "city": "Santa Fe",
+   "province": "Rosario",
+   "postal_code": "72450",
+   "country_code": "MX"
+  },
+  "address_to": {
+   "name": "Pedro Loaza",
+   "street1": "santiago 2445",
+   "city": "Fauz",
+   "province": "Formosa",
+   "postal_code": "72450",
+   "country_code": "MX"
+  },
+  "parcels": [
+   {
+    "length": "244",
+    "width": "22",
+    "height": "114",
+    "dimensions_unit": "CM",
+    "weight": "442",
+    "weight_unit": "KG"
+   }
+  ],
+  "companieID": "2",
+  "status": "completed"
+ }
+]

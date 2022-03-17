@@ -21,6 +21,8 @@ Express
 
 ## Documentation
 
+Database Diagram
+
 ![alt text](https://i.ibb.co/hRdNcD6/bd-image.png)
 
 

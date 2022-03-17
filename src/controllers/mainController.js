@@ -1,8 +1,14 @@
 const fs = require('fs');
+const pdf = require('html-pdf');
 
 const controlador = {
+
     index: (req, res) => {
         res.render('index');
+    },
+
+    test: (req, res) => {
+        res.render('test');
     },
 
     getCompanies: (req, res) => {
@@ -11,26 +17,30 @@ const controlador = {
     },
 
     createCompanie: (req, res) => {
-        const companiesData = JSON.parse(fs.readFileSync(__dirname + '/../database/companiesData.json'));  
-        let newID = (companiesData[companiesData.length-1].id)+1;
-        let newData ={
+        const companiesData = JSON.parse(fs.readFileSync(__dirname + '/../database/companiesData.json'));
+        let newID = (companiesData[companiesData.length - 1].id) + 1;
+        let newData = {
             id: newID,
             name: req.body.name,
             apiUrl: req.body.apiUrl,
         }
         companiesData.push(newData);
-        fs.writeFileSync(__dirname + '/../database/companiesData.json',JSON.stringify(companiesData,null,' '));
-        res.send("Empresa agregada");
+        fs.writeFileSync(__dirname + '/../database/companiesData.json', JSON.stringify(companiesData, null, ' '));
+        res.json({ code: 200, companie_id: newID, description: "Companie created" });
     },
 
-    sendData: (req, res) => {
-        const tagsData = JSON.parse(fs.readFileSync(__dirname + '/../database/tagsData.json'));
-        let newID = (tagsData[tagsData.length-1].id)+1;
+    getShipments: (req, res) => {
+        const shipmentsData = JSON.parse(fs.readFileSync(__dirname + '/../database/shipmentsData.json'));
+        res.json(shipmentsData);
+    },
 
-        let newData ={
+    createShipment: (req, res) => {
+        const tagsData = JSON.parse(fs.readFileSync(__dirname + '/../database/shipmentsData.json'));
+        let newID = (tagsData[tagsData.length - 1].id) + 1;
+
+        let newData = {
             id: newID,
-            address_from:
-            {
+            address_from: {
                 name: req.body.nameo,
                 street1: req.body.addresso,
                 city: req.body.cityo,
@@ -38,8 +48,7 @@ const controlador = {
                 postal_code: "72450",
                 country_code: "MX"
             },
-            address_to:
-            {
+            address_to: {
                 name: req.body.named,
                 street1: req.body.addressd,
                 city: req.body.cityd,
@@ -47,53 +56,68 @@ const controlador = {
                 postal_code: "72450",
                 country_code: "MX"
             },
-            "parcels": 
-            [
-                {
-                    length: req.body.lengthp,
-                    width: req.body.widthp,
-                    height: req.body.heightp,
-                    dimensions_unit: "CM",
-                    weight: req.body.weightp,
-                    weight_unit: "KG"
-                }
-            ],
+            "parcels": [{
+                length: req.body.lengthp,
+                width: req.body.widthp,
+                height: req.body.heightp,
+                dimensions_unit: "CM",
+                weight: req.body.weightp,
+                weight_unit: "KG"
+            }],
             companieID: req.body.companie,
             status: "pending"
         };
         tagsData.push(newData);
-        fs.writeFileSync(__dirname + '/../database/tagsData.json',JSON.stringify(tagsData,null,' '));
-        res.send("Id de envio generado: " + newID);
+        fs.writeFileSync(__dirname + '/../database/shipmentsData.json', JSON.stringify(tagsData, null, ' '));
+        res.json({ code: 200, shipment_id: newID, description: "Shipment created" });
     },
 
     checkStatus: (req, res) => {
-        const tagsData = JSON.parse(fs.readFileSync(__dirname + '/../database/tagsData.json'));
-        SearchID = req.params.id;
-        const elementSearch = tagsData.find(element => element.companieID == SearchID);
 
-        if(elementSearch!=undefined){
-            res.send(elementSearch.status)
+        const tagsData = JSON.parse(fs.readFileSync(__dirname + '/../database/shipmentsData.json'));
+        let SearchID = req.body.id_shipment;
+        const elementSearch = tagsData.find(element => element.id == SearchID);
+
+        if (elementSearch != undefined) {
+            if (elementSearch.status == "completed") {
+                res.redirect('/document/' + SearchID);
+            } else {
+                res.json({ code: 200, shipment_id: SearchID, status: elementSearch.status });
+            }
+        } else {
+            res.json({ error: "Element not found" });
         }
-        else{
-            res.send("No encontrado")
-        }
+    },
+
+    returnDocument: (req, res) => {
+        const tagsData = JSON.parse(fs.readFileSync(__dirname + '/../database/shipmentsData.json'));
+        let SearchID = req.params.id;
+        const elementSearch = tagsData.find(element => element.id == SearchID);
+
+        const content = `
+            <h1>Multi-carrier Shipping</h1>
+            <h3>Shipment Data</h3>
+            <p>Number of shipment: ${elementSearch.id}</p>
+            <p>
+            Origin: 
+            ${elementSearch.address_from.street1}, 
+            ${elementSearch.address_from.province}, 
+            ${elementSearch.address_from.city} 
+            (${elementSearch.address_from.postal_code})
+            </p>
+            <p>
+            Destination: 
+            ${elementSearch.address_to.street1}, 
+            ${elementSearch.address_to.province}, 
+            ${elementSearch.address_to.city} 
+            (${elementSearch.address_to.postal_code})
+            </p>
+            `;
+
+        pdf.create(content).toFile(__dirname + '/../../public/files/shipment' + elementSearch.id + '.pdf', function(err, res) {})
+        res.send("Archivo almacenado en el directorio public/files con el nombre de shipment" + elementSearch.id + '.pdf')
     }
 }
 
-
-// const pdf = require('html-pdf');
-
-//         const content = `
-//         <h1>Título en el PDF creado con el paquete html-pdf</h1>
-//         <p>Generando un PDF con un HTML sencillo</p>
-//         `;
-
-//         pdf.create(content).toFile('./html-pdf.pdf', function(err, res) {
-//             if (err){
-//                 console.log(err);
-//             } else {
-//                 console.log(res);
-//             }
-//         });
 
 module.exports = controlador;

@@ -1,12 +1,12 @@
-let selectCompanies = document.getElementById('companie');
+let selectCompanies = document.getElementById('shipment');
 
-fetch('http://localhost:3000/companies')
+fetch('http://localhost:3000/shipments')
     .then(res => res.json())
     .then(res => {
         for (e of res) {
             var opt = document.createElement("option");
             opt.value = e.id;
-            opt.innerHTML = e.name;
+            opt.innerHTML = e.id;
             selectCompanies.appendChild(opt);
         }
     })
