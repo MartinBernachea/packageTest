@@ -62,16 +62,29 @@ For more documentation search in "Document" project folder
 ## Future upgrades
 
 Backend validations for requests     
-Change JSON files for database (base in the database diagram in documentation)  
+
+Change JSON files for database (base in the database diagram in documentation) 
+
 Implement and use Type-ORM    
-Detect automatically postal_code and country_code from database table information (data previously loaded)    
+
+Detect automatically postal_code and country_code from database table information (data previously loaded)  
+
 Add that one user can select dynamically countries, cities and provinces from database (data previously loaded)    
+
 Add that one user can select dynamically units from database (data previously loaded)    
+
 Add that one user can upload more than one package to the shipment    
+
 Implements JWT for security    
+
 Implements APIKey for security    
+
 Implements units test for all the endpoints    
+
 Implements that the api request be asynchronous     
+
 Implements in the case that the request have more than one pdf file, compress and download all the files in a zip file    
+
 Upgrate the pdf design (have to be more formal)     
+
 Implements .env file for manage all the environments properly       
