@@ -17,7 +17,7 @@ fetch('http://localhost:3000/shipments')
             for (e of res) {
                 var opt = document.createElement("option");
                 opt.value = e.id;
-                opt.innerHTML = e.name;
+                opt.innerHTML = e.id;
                 selectCompanies.appendChild(opt);
         }
     }));
