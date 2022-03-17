@@ -89,7 +89,7 @@ const controlador = {
         }
     },
 
-    returnDocument: (req, res) => {
+    returnDocument: async (req, res) => {
         const tagsData = JSON.parse(fs.readFileSync(__dirname + '/../database/shipmentsData.json'));
         let SearchID = req.params.id;
         const elementSearch = tagsData.find(element => element.id == SearchID);
@@ -114,8 +114,13 @@ const controlador = {
             </p>
             `;
 
-        pdf.create(content).toFile(__dirname + '/../../public/files/shipment' + elementSearch.id + '.pdf', function(err, res) {})
-        res.send("Archivo almacenado en el directorio public/files con el nombre de shipment" + elementSearch.id + '.pdf')
+        await pdf.create(content).toFile(__dirname + '/../../public/files/shipment' + elementSearch.id + '.pdf', function(err, res) {
+            if (err) console.log(err);
+        })
+
+        let filePath=__dirname + '/../../public/files/shipment' + elementSearch.id + '.pdf';
+        res.download(filePath);
+        
     }
 }
 
