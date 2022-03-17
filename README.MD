@@ -1,6 +1,6 @@
 # Package Test
 
-A project to manage packages request 
+A project to manage packages requests  
 
 
 ## Author
@@ -10,8 +10,8 @@ Jerónimo Sola
 
 ## Description
 
-in this website an user can upload a shipment data.  
-In the /test path is possible to check the status of a shipment, if the status is "completed" you can get a pdf file with the shipment data.
+in this website an user can upload a shipment.  
+In the /test path is possible to check the status of a particular shipment, if the status is "completed" you can get a pdf file with the shipment data.
 
 
 ## Test environment
@@ -56,24 +56,22 @@ Database Diagram
 ![alt text](https://i.ibb.co/hRdNcD6/bd-image.png)
 
 
-For more documentation search in Document project folder
+For more documentation search in "Document" project folder
 
 
 ## Future upgrades
 
-Backend validations for request  
+Backend validations for requests     
 Change JSON files for database (base in the database diagram in documentation)  
-Implement and use Type-ORM  
-Detect automatically postal_code and country_code from database table information (data already loaded)  
-Add that one user can select dynamically countries, cities and provinces from database (data already loaded)  
-Add that one user can select dynamically units from database (data already loaded)  
-Add that one user can upload more than one package to the shipment  
-Implements JWT for security  
-Implements APIKey for security  
-Implements units test for all the endpoints  
-Implements that the api request be asynchronous  
-Implements in the case that the request is more than one pdf file, compress and download all the files in a zip file  
-Upgrate the pdf design (have to be more formal)   
-Implements .env file for all the environments  
-
-
+Implement and use Type-ORM    
+Detect automatically postal_code and country_code from database table information (data previously loaded)    
+Add that one user can select dynamically countries, cities and provinces from database (data previously loaded)    
+Add that one user can select dynamically units from database (data previously loaded)    
+Add that one user can upload more than one package to the shipment    
+Implements JWT for security    
+Implements APIKey for security    
+Implements units test for all the endpoints    
+Implements that the api request be asynchronous     
+Implements in the case that the request have more than one pdf file, compress and download all the files in a zip file    
+Upgrate the pdf design (have to be more formal)     
+Implements .env file for manage all the environments properly       
