@@ -11,5 +11,7 @@ router.get('/shipments',mainController.getShipments);
 router.post('/shipment',mainController.createShipment);
 router.post('/shipmentStatus',mainController.checkStatus);
 router.get('/document/:id',mainController.returnDocument);
+router.get('/enviromentUrlCompanies',mainController.returnUrlEnvCompanies);
+router.get('/enviromentUrlShipments',mainController.returnUrlEnvShipments);
 
 module.exports = router;

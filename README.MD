@@ -43,6 +43,7 @@ chai-http
 mocha  
 html-pdf  
 nodemon  
+dotenv  
 
 
 ## Documentation

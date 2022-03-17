@@ -1,5 +1,6 @@
 const fs = require('fs');
 const pdf = require('html-pdf');
+require('dotenv').config();
 
 const controlador = {
 
@@ -117,14 +118,36 @@ const controlador = {
         function finalPDF(filePath){
                 res.download(filePath);
         }
-        
+
         await pdf.create(content).toFile(__dirname + '/../../public/files/shipment' + elementSearch.id + '.pdf', function(err, res) {
             if (err) console.log(err);
             let fp=__dirname + '/../../public/files/shipment' + elementSearch.id + '.pdf'
             finalPDF(fp);
         })
 
-    }
+    },
+
+    returnUrlEnvCompanies: (req, res) => {
+        if (process.env.PORT!=undefined){
+            res.json({ url: process.env.urlTestCompanies});
+        }
+        else{
+            res.json({ url: process.env.urlLocalCompanies});
+        }
+    },
+
+    returnUrlEnvShipments: (req, res) => {
+        if (process.env.PORT!=undefined){
+            res.json({ url: process.env.urlTestShipments});
+        }
+        else{
+            res.json({ url: process.env.urlLocalShipments});
+        }
+    },
+
+    
+
+
 }
 
 
