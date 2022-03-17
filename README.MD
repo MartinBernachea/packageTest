@@ -74,6 +74,6 @@ Implements units test for all the endpoints
 Implements that the api request be asynchronous   
 Implements in the case that the request have more than one pdf file, compress and download all the files in a zip file  
 Upgrate the pdf design (have to be more formal)   
-Implements .env file for all the environments  
+Implements .env file for manage all the environments  
 
 
