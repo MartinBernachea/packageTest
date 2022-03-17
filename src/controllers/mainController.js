@@ -120,7 +120,6 @@ const controlador = {
 
         let filePath=__dirname + '/../../public/files/shipment' + elementSearch.id + '.pdf';
         res.download(filePath);
-        
     }
 }
 
