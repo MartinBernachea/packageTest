@@ -23,7 +23,7 @@ In the /test path is possible to check the status of a particular shipment, if t
 
 **npm install** --> install dependencies  
 **npm start** &nbsp; --> run locally in port 3000  
-**npm test** &nbsp; --> run all unit test
+**npm test** &nbsp; &nbsp; --> run all unit test
 
 
 ## Testing live instructions
