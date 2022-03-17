@@ -10,4 +10,15 @@ fetch('http://localhost:3000/shipments')
             selectCompanies.appendChild(opt);
         }
     })
-    .catch(err => console.error(err));
+    .catch(
+        fetch('https://testpackage123.herokuapp.com/shipments')
+        .then(res => res.json())
+        .then(res => {
+            for (e of res) {
+                var opt = document.createElement("option");
+                opt.value = e.id;
+                opt.innerHTML = e.name;
+                selectCompanies.appendChild(opt);
+        }
+    }));
+
