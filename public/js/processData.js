@@ -1,11 +1,12 @@
 let selectCompanies = document.getElementById('companie');
 
 fetch('http://localhost:3000/enviromentUrlCompanies')
-    .then(res => res.json())
-    .then(res => {
-        fetch(res.url)
+    .then(r => r.json())
+    .then(q => {
+        fetch("https://testpackage123.herokuapp.com/companies")
             .then(res => res.json())
             .then(res => {
+                console.log("v",res)
                 for (e of res) {
                     var opt = document.createElement("option");
                     opt.value = e.id;
