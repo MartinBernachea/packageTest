@@ -57,7 +57,7 @@ Database Diagram
 ![alt text](https://i.ibb.co/hRdNcD6/bd-image.png)
 
 
-For more documentation search in "Document" project folder
+For more documentation search in "documents" project folder
 
 
 ## Future upgrades
