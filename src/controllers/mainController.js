@@ -114,12 +114,16 @@ const controlador = {
             </p>
             `;
 
+        function finalPDF(filePath){
+                res.download(filePath);
+        }
+        
         await pdf.create(content).toFile(__dirname + '/../../public/files/shipment' + elementSearch.id + '.pdf', function(err, res) {
             if (err) console.log(err);
+            let fp=__dirname + '/../../public/files/shipment' + elementSearch.id + '.pdf'
+            finalPDF(fp);
         })
 
-        let filePath=__dirname + '/../../public/files/shipment' + elementSearch.id + '.pdf';
-        res.download(filePath);
     }
 }
 
