@@ -12,11 +12,18 @@ Jerónimo Sola
 
 **npm install** --> install dependencies  
 **npm start** &nbsp; --> run locally in port 3000
+**npm test** &nbsp; --> run all unit test
 
 
 ## Dependencies
 
-Express
+express
+ejs
+chai
+chai-http
+mocha
+html-pdf
+nodemon
 
 
 ## Documentation
