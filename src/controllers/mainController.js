@@ -125,29 +125,7 @@ const controlador = {
             finalPDF(fp);
         })
 
-    },
-
-    returnUrlEnvCompanies: (req, res) => {
-        if (process.env.PORT!=undefined){
-            res.json({ url: process.env.urlTestCompanies});
-        }
-        else{
-            res.json({ url: process.env.urlLocalCompanies});
-        }
-    },
-
-    returnUrlEnvShipments: (req, res) => {
-        if (process.env.PORT!=undefined){
-            res.json({ url: process.env.urlTestShipments});
-        }
-        else{
-            res.json({ url: process.env.urlLocalShipments});
-        }
-    },
-
-    
-
-
+    }
 }
 
 
