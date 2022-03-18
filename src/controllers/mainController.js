@@ -1,6 +1,5 @@
 const fs = require('fs');
 const pdf = require('html-pdf');
-require('dotenv').config();
 
 const controlador = {
 
